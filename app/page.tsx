@@ -7,88 +7,62 @@ export default function Home() {
     <main className="min-h-screen bg-gray-100">
 
       {/* HEADER */}
-   <header className="sticky top-0 z-50 py-4">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="bg-blue-950/95 backdrop-blur-md text-white rounded-3xl shadow-2xl px-8 py-5 flex items-center justify-between">
-            <div className="flex items-center gap-8">
-              <img
-                src="/logo.png"
-                alt="Logo Decocraft3D"
-                className="w-28 md:w-56 h-auto"
-              />
+<header className="sticky top-0 z-50 py-4">
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="bg-blue-950/95 backdrop-blur-md text-white rounded-3xl shadow-2xl px-8 py-5 flex items-center justify-between">
+      
+      <div className="flex items-center gap-8">
+        <img
+          src="/logo.png"
+          alt="Logo Decocraft3D"
+          className="w-28 md:w-56 h-auto"
+        />
+        <div className="h-16 w-px bg-white/25 hidden lg:block"></div>
+      </div>
 
-              <div className="h-16 w-px bg-white/25"></div>
-            </div>
-<button
-  className="lg:hidden text-3xl font-bold text-white"
-  onClick={() => setMenuOpen(!menuOpen)}
->
-  ☰
-</button>
-            <nav className="hidden lg:flex items-center gap-10">
-              
-              <a
-                href="#inicio"
-                className="text-yellow-400 font-bold border-b-4 border-yellow-400 pb-2"
-              >
-                Inicio
-              </a>
+      <nav className="hidden lg:flex items-center gap-10">
+        <a href="#inicio" className="text-yellow-400 font-bold border-b-4 border-yellow-400 pb-2">Inicio</a>
+        <a href="#curso" className="hover:text-yellow-400 font-semibold">Curso</a>
+        <a href="#temario" className="hover:text-yellow-400 font-semibold">Temario</a>
+        <a href="#proyectos" className="hover:text-yellow-400 font-semibold">Proyectos</a>
+        <a href="#contacto" className="hover:text-yellow-400 font-semibold">Contacto</a>
+      </nav>
 
-              <a href="#curso" className="hover:text-yellow-400 font-semibold">
-                Curso
-              </a>
+      <div className="hidden lg:flex items-center gap-6">
+        <a
+          href="/login"
+          className="bg-yellow-500 hover:bg-yellow-400 text-black text-sm md:text-base px-4 py-2 md:px-8 md:py-4 rounded-xl font-bold"
+        >
+          Acceder
+        </a>
+      </div>
 
-              <a href="#temario" className="hover:text-yellow-400 font-semibold">
-                Temario
-              </a>
-
-              <a href="#proyectos" className="hover:text-yellow-400 font-semibold">
-                Proyectos
-              </a>
-
-              <a href="#contacto" className="hover:text-yellow-400 font-semibold">
-                Contacto
-              </a>
-            </nav>
-
-          <div className="hidden lg:flex items-center gap-6">
-              <div className="h-16 w-px bg-white/25 hidden lg:block"></div>
-
-            <a
-  href="/login"
-  className="bg-yellow-500 hover:bg-yellow-400 text-black text-sm md:text-base px-4 py-2 md:px-8 md:py-4 rounded-xl font-bold"
->
-  Acceder
-</a>
-            </div>
-
-          </div>
-        </div>
-      </header>
-     {menuOpen && (
-  <div className="fixed top-32 left-6 right-6 lg:hidden bg-blue-950 text-white rounded-2xl p-4 shadow-xl z-50">
-    <a href="#inicio" className="block py-3 border-b border-white/20">
-      Inicio
-    </a>
-
-    <a href="#curso" className="block py-3 border-b border-white/20">
-      Curso
-    </a>
-
-    <a href="#temario" className="block py-3 border-b border-white/20">
-      Temario
-    </a>
-
-    <a href="#proyectos" className="block py-3 border-b border-white/20">
-      Proyectos
-    </a>
-
-    <a href="#contacto" className="block py-3">
-      Contacto
-    </a>
+      <button
+        className="lg:hidden text-3xl font-bold text-white"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        ☰
+      </button>
+    </div>
   </div>
-)}
 
+  {menuOpen && (
+    <div className="fixed top-32 left-6 right-6 lg:hidden bg-blue-950 text-white rounded-2xl p-4 shadow-xl z-50">
+      <a href="#inicio" onClick={() => setMenuOpen(false)} className="block py-3 border-b border-white/20">Inicio</a>
+      <a href="#curso" onClick={() => setMenuOpen(false)} className="block py-3 border-b border-white/20">Curso</a>
+      <a href="#temario" onClick={() => setMenuOpen(false)} className="block py-3 border-b border-white/20">Temario</a>
+      <a href="#proyectos" onClick={() => setMenuOpen(false)} className="block py-3 border-b border-white/20">Proyectos</a>
+      <a href="#contacto" onClick={() => setMenuOpen(false)} className="block py-3 border-b border-white/20">Contacto</a>
+
+      <a
+        href="/login"
+        className="block mt-4 bg-yellow-500 text-black text-center font-bold py-3 rounded-xl"
+      >
+        Acceder
+      </a>
+    </div>
+  )}
+</header>
       {/* HERO */}
       <section id="inicio" className="scroll-mt-19 max-w-7xl mx-auto px-6 pt-4 pb-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
 >
