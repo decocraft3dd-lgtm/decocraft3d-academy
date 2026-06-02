@@ -124,7 +124,7 @@ export default function Modulo2() {
 
             <a href="#" className="block bg-gray-100 rounded-2xl p-5 hover:shadow-lg transition">
               <h2 className="text-xl font-bold text-blue-950">
-                {divisiones ? "✅" : "⬜"} Divisiones
+                {divisiones ? "✅" : "⬜"} Componentes Dinámicos
               </h2>
             </a>
 
