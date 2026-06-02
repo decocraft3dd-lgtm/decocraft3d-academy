@@ -5,17 +5,22 @@ import { supabase } from "@/lib/supabaseClient";
 
 export default function Dashboard() {
   const [loading, setLoading] = useState(true);
+  const [usuario, setUsuario] = useState("");
 
   useEffect(() => {
     async function verificarSesion() {
       const { data } = await supabase.auth.getSession();
 
       if (!data.session) {
-        window.location.href = "/login";
-        return;
-      }
+  window.location.href = "/login";
+  return;
+}
 
-      setLoading(false);
+const email = data.session.user.email || "";
+const nombre = email.split("@")[0];
+
+setUsuario(nombre);
+setLoading(false);
     }
 
     verificarSesion();
@@ -51,10 +56,13 @@ export default function Dashboard() {
           </button>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-8 mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Bienvenido a Decocraft3D Academy
-          </h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
+  Bienvenido
+</h1>
+
+<p className="text-yellow-400 text-xl font-semibold">
+  {usuario}
+</p>
 
           <p className="text-gray-300 text-lg">
             Accede a tus módulos, clases grabadas y recursos del curso.
