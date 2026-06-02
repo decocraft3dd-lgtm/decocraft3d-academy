@@ -92,7 +92,7 @@ export default function Modulo2() {
 
           <div className="grid gap-4">
 
-            <a href="#" className="block bg-gray-100 rounded-2xl p-5 hover:shadow-lg transition">
+            <a href="/dashboard/modulo2/cubo-base" className="block bg-gray-100 rounded-2xl p-5 hover:shadow-lg transition">
               <h2 className="text-xl font-bold text-blue-950">
                 {cubos ? "✅" : "⬜"} Crear cubo base
               </h2>
