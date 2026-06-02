@@ -57,23 +57,34 @@ export default function Instalacion() {
             Aprende a descargar e instalar SketchUp correctamente.
           </p>
 
-          <div className="aspect-video overflow-hidden rounded-2xl shadow-lg mb-8">
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/m4lN0Q_ITlg"
-              title="Instalación de SketchUp"
-              allowFullScreen
-            />
-          </div>
+         <div className="aspect-video overflow-hidden rounded-2xl shadow-lg mb-8">
+  <iframe
+    className="w-full h-full"
+    src="https://www.youtube.com/embed/m4lN0Q_ITlg"
+    title="Instalación de SketchUp"
+    allowFullScreen
+  />
+</div>
 
-          <button
-            onClick={marcarCompletado}
-            className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold px-8 py-4 rounded-xl"
-          >
-            {completado
-              ? "✅ Clase completada"
-              : "Marcar clase como completada"}
-          </button>
+<a
+  href="https://drive.google.com/drive/folders/16XE2njgRvF6Jh6mW3-Q66W5KKo__ceu_?usp=drive_link"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block bg-blue-950 hover:bg-blue-900 text-white font-bold px-8 py-4 rounded-xl shadow-lg mb-6"
+>
+  📦 Descargar SketchUp
+</a>
+
+<br />
+
+<button
+  onClick={marcarCompletado}
+  className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold px-8 py-4 rounded-xl"
+>
+  {completado
+    ? "✅ Clase completada"
+    : "Marcar clase como completada"}
+</button>
         </div>
       </div>
     </main>
