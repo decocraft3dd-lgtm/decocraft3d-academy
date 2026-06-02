@@ -94,31 +94,31 @@ export default function Modulo2() {
 
             <a href="#" className="block bg-gray-100 rounded-2xl p-5 hover:shadow-lg transition">
               <h2 className="text-xl font-bold text-blue-950">
-                {cubos ? "✅" : "⬜"} Crear cubos base
+                {cubos ? "✅" : "⬜"} Crear cubo base
               </h2>
             </a>
 
             <a href="#" className="block bg-gray-100 rounded-2xl p-5 hover:shadow-lg transition">
               <h2 className="text-xl font-bold text-blue-950">
-                {estructuras ? "✅" : "⬜"} Estructuras
+                {estructuras ? "✅" : "⬜"} Estructura de un Módulo
               </h2>
             </a>
 
             <a href="#" className="block bg-gray-100 rounded-2xl p-5 hover:shadow-lg transition">
               <h2 className="text-xl font-bold text-blue-950">
-                {laterales ? "✅" : "⬜"} Laterales
+                {laterales ? "✅" : "⬜"} Divisiones y Repisas
               </h2>
             </a>
 
             <a href="#" className="block bg-gray-100 rounded-2xl p-5 hover:shadow-lg transition">
               <h2 className="text-xl font-bold text-blue-950">
-                {tapas ? "✅" : "⬜"} Tapas
+                {tapas ? "✅" : "⬜"} Creación de Cajas
               </h2>
             </a>
 
             <a href="#" className="block bg-gray-100 rounded-2xl p-5 hover:shadow-lg transition">
               <h2 className="text-xl font-bold text-blue-950">
-                {fondos ? "✅" : "⬜"} Fondos
+                {fondos ? "✅" : "⬜"} Copias, Simetrías y Componentes
               </h2>
             </a>
 
@@ -130,7 +130,7 @@ export default function Modulo2() {
 
             <a href="#" className="block bg-gray-100 rounded-2xl p-5 hover:shadow-lg transition">
               <h2 className="text-xl font-bold text-blue-950">
-                {medidas ? "✅" : "⬜"} Medidas exactas
+                {medidas ? "✅" : "⬜"} Proyecto de Aplicación
               </h2>
             </a>
 
