@@ -1,19 +1,43 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabaseClient";
 
 export default function Modulo1() {
+  const [loading, setLoading] = useState(true);
+
   const [instalacion, setInstalacion] = useState(false);
   const [primerosPasos, setPrimerosPasos] = useState(false);
   const [primerosPasos2, setPrimerosPasos2] = useState(false);
   const [metodos, setMetodos] = useState(false);
 
   useEffect(() => {
-    setInstalacion(localStorage.getItem("modulo1-instalacion") === "completado");
-    setPrimerosPasos(localStorage.getItem("modulo1-primeros-pasos") === "completado");
-    setPrimerosPasos2(localStorage.getItem("modulo1-primeros-pasos-2") === "completado");
-    setMetodos(localStorage.getItem("modulo1-metodos-abreviados") === "completado");
+    async function verificarSesion() {
+      const { data } = await supabase.auth.getSession();
+
+      if (!data.session) {
+        window.location.href = "/login";
+        return;
+      }
+
+      setInstalacion(localStorage.getItem("modulo1-instalacion") === "completado");
+      setPrimerosPasos(localStorage.getItem("modulo1-primeros-pasos") === "completado");
+      setPrimerosPasos2(localStorage.getItem("modulo1-primeros-pasos-2") === "completado");
+      setMetodos(localStorage.getItem("modulo1-metodos-abreviados") === "completado");
+
+      setLoading(false);
+    }
+
+    verificarSesion();
   }, []);
+
+  if (loading) {
+    return (
+      <main className="min-h-screen flex items-center justify-center bg-blue-950 text-white">
+        <p className="text-xl font-bold">Verificando acceso...</p>
+      </main>
+    );
+  }
 
   const completadas = [
     instalacion,
@@ -103,24 +127,25 @@ export default function Modulo1() {
               </p>
             </a>
           </div>
+
           {progreso === 100 && (
-  <div className="mt-8 bg-green-100 border border-green-300 rounded-2xl p-6 text-center">
-    <h2 className="text-3xl font-bold text-green-700 mb-2">
-      🎉 ¡Felicitaciones!
-    </h2>
+            <div className="mt-8 bg-green-100 border border-green-300 rounded-2xl p-6 text-center">
+              <h2 className="text-3xl font-bold text-green-700 mb-2">
+                🎉 ¡Felicitaciones!
+              </h2>
 
-    <p className="text-gray-700 mb-4">
-      Has completado el Módulo 1.
-    </p>
+              <p className="text-gray-700 mb-4">
+                Has completado el Módulo 1.
+              </p>
 
-    <a
-      href="/dashboard/modulo2"
-      className="inline-block bg-yellow-500 hover:bg-yellow-400 text-black font-bold px-8 py-4 rounded-xl"
-    >
-      Continuar al Módulo 2 →
-    </a>
-  </div>
-)}
+              <a
+                href="/dashboard/modulo2"
+                className="inline-block bg-yellow-500 hover:bg-yellow-400 text-black font-bold px-8 py-4 rounded-xl"
+              >
+                Continuar al Módulo 2 →
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </main>
