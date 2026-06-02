@@ -12,15 +12,15 @@ export default function Dashboard() {
       const { data } = await supabase.auth.getSession();
 
       if (!data.session) {
-  window.location.href = "/login";
-  return;
-}
+        window.location.href = "/login";
+        return;
+      }
 
-const email = data.session.user.email || "";
-const nombre = email.split("@")[0];
+      const email = data.session.user.email || "";
+      const nombre = email.split("@")[0];
 
-setUsuario(nombre);
-setLoading(false);
+      setUsuario(nombre);
+      setLoading(false);
     }
 
     verificarSesion();
@@ -37,7 +37,6 @@ setLoading(false);
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-gray-950 p-6">
       <div className="max-w-6xl mx-auto">
-
         <div className="flex justify-between items-center mb-10">
           <img
             src="/logo.png"
@@ -56,13 +55,14 @@ setLoading(false);
           </button>
         </div>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
-  Bienvenido
-</h1>
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-8 mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
+            Bienvenido
+          </h1>
 
-<p className="text-yellow-400 text-xl font-semibold">
-  {usuario}
-</p>
+          <p className="text-yellow-400 text-xl font-semibold mb-4">
+            {usuario}
+          </p>
 
           <p className="text-gray-300 text-lg">
             Accede a tus módulos, clases grabadas y recursos del curso.
@@ -70,7 +70,6 @@ setLoading(false);
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
           <a
             href="/dashboard/modulo1"
             className="block bg-white rounded-3xl p-6 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition"
@@ -129,7 +128,6 @@ setLoading(false);
               Próximamente
             </span>
           </div>
-
         </div>
       </div>
     </main>
