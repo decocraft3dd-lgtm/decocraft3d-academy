@@ -1,19 +1,42 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabaseClient";
 
 export default function Instalacion() {
+  const [loading, setLoading] = useState(true);
   const [completado, setCompletado] = useState(false);
 
   useEffect(() => {
-    const estado = localStorage.getItem("modulo1-instalacion");
-    setCompletado(estado === "completado");
+    async function verificarSesion() {
+      const { data } = await supabase.auth.getSession();
+
+      if (!data.session) {
+        window.location.href = "/login";
+        return;
+      }
+
+      const estado = localStorage.getItem("modulo1-instalacion");
+      setCompletado(estado === "completado");
+
+      setLoading(false);
+    }
+
+    verificarSesion();
   }, []);
 
   const marcarCompletado = () => {
     localStorage.setItem("modulo1-instalacion", "completado");
     setCompletado(true);
   };
+
+  if (loading) {
+    return (
+      <main className="min-h-screen flex items-center justify-center bg-blue-950 text-white">
+        <p className="text-xl font-bold">Verificando acceso...</p>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-blue-950 p-8">
@@ -47,7 +70,9 @@ export default function Instalacion() {
             onClick={marcarCompletado}
             className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold px-8 py-4 rounded-xl"
           >
-            {completado ? "✅ Clase completada" : "Marcar clase como completada"}
+            {completado
+              ? "✅ Clase completada"
+              : "Marcar clase como completada"}
           </button>
         </div>
       </div>
